@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EasternNova — Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+<!-- Floating code bg -->
+<div class="code-bg" id="codeBg"></div>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">&lt;/&gt;</div>
+    EasternNova_
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#about">/ About</a></li>
+    <li><a href="#skills">/ Skills</a></li>
+    <li><a href="#projects">/ Projects</a></li>
+    <li><a href="#contact">/ Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="available-badge">
+      <span class="available-dot"></span>
+      Available
+    </div>
+    <a href="#contact" class="hire-btn">Hire me</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+
+  <!-- Avatar -->
+  <div class="avatar-col">
+    <div class="avatar-status">
+      <span class="status-dot"></span>
+      ONLINE · CODING
+    </div>
+
+    <div class="avatar-wrapper">
+        <div class="avatar-glow"></div>
+        <div class="avatar-ring">
+        <div class="avatar-ring-inner">
+            <canvas id="avatarCanvas" width="288" height="288"></canvas> </div>
+        </div>
+    </div>
+
+    <div class="avatar-namecard">
+      <div class="namecard-label">Web Developer</div>
+      <div class="namecard-name">EasternNova</div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content-col">
+    <div class="location-badge">
+      <span class="loc-dot"></span>
+      Learning & Open to opportunities · India
+    </div>
+
+    <h1 class="hero-heading">
+      Hi, I'm <span class="accent">EasternNova</span>
+    </h1>
+
+    <div class="hero-tag">
+      &lt;Web Developer & Designer/&gt;
+    </div>
+
+    <p class="hero-bio">
+      CS student · Currently learning & building projects — crafting clean, modern, and user-friendly web experiences.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View my work</a>
+      <a href="#contact" class="btn-secondary">Let's talk</a>
+      <a href="#" class="btn-ghost">Résumé</a>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-value">4+</div>
+        <div class="stat-label">Languages</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">5+</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">90d</div>
+        <div class="stat-label">Streak</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">∞</div>
+        <div class="stat-label">Coffee</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="section" id="about">
+  <div class="section-label">/ 01 — About</div>
+  <h2 class="section-title">A bit about me</h2>
+  <div class="section-divider"></div>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I design and build software that feels right — clean interfaces and thoughtful interactions.</p>
+      <p>As a CS student, I'm exploring design + engineering.</p>
+    </div>
+
+    <div class="about-code-block">
+      <div class="code-header">
+        <div class="code-dot d1"></div>
+        <div class="code-dot d2"></div>
+        <div class="code-dot d3"></div>
+        <span class="code-filename">about.ts</span>
+      </div>
+      <div class="code-body">
+        const EasternNova = { <br>
+        name: "EasternNova", <br>
+        role: "Web Developer" <br>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section class="section" id="skills">
+  <div class="section-label">/ 02 — Skills</div>
+  <h2 class="section-title">What I work with</h2>
+  <div class="section-divider"></div>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-name">React</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-name">TypeScript</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-name">CSS</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section class="section" id="projects">
+  <div class="section-label">/ 03 — Projects</div>
+  <h2 class="section-title">Things I've built</h2>
+  <div class="section-divider"></div>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-title">Portfolio v1</div>
+      <div class="project-desc">My personal portfolio</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-title">Dev Dashboard</div>
+      <div class="project-desc">Analytics dashboard</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="section" id="contact">
+  <div class="section-label">/ 04 — Contact</div>
+
+  <div class="contact-card">
+    <h2 class="contact-heading">Let's build something ✨</h2>
+    <p class="contact-sub">Open to freelance & internships</p>
+
+    <div class="contact-links">
+      <a href="mailto:hello@easternnova.dev" class="contact-link">Email</a>
+      <a href="#" class="contact-link">GitHub</a>
+      <a href="#" class="contact-link">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span>© 2026 EasternNova</span>
+  <span>Built with 💜</span>
+</footer>
+
+<!-- JS -->
+<script src="js/background.js"></script>
+<script src="js/avatar.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .hero { flex-direction: column; padding: 100px 20px 60px; gap: 40px; align-items: center; text-align: center; }
+  .hero-heading { font-size: 38px; }
+  .hero-actions { justify-content: center; }
+  .stat-grid { grid-template-columns: repeat(2,1fr); }
+  .about-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .section { padding: 60px 20px; }
+}
