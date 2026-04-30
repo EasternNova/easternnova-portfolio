@@ -4,35 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EasternNova — Portfolio</title>
-
+ 
   <!-- Fonts -->
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet">
-
+ 
   <!-- CSS -->
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/animations.css">
-<link rel="stylesheet" href="css/responsive.css">
+  <!-- FIX: was "animations.css" (wrong name) and "avatra.css" (typo) -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animation.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/avatar.css">
 </head>
-
+ 
 <body>
-
+ 
 <!-- Floating code bg -->
 <div class="code-bg" id="codeBg"></div>
-
+ 
 <!-- ── NAVBAR ── -->
 <nav>
   <a href="#" class="nav-logo">
     <div class="nav-logo-icon">&lt;/&gt;</div>
     EasternNova_
   </a>
-
+ 
   <ul class="nav-links">
     <li><a href="#about">/ About</a></li>
     <li><a href="#skills">/ Skills</a></li>
     <li><a href="#projects">/ Projects</a></li>
     <li><a href="#contact">/ Contact</a></li>
   </ul>
-
+ 
   <div class="nav-right">
     <div class="available-badge">
       <span class="available-dot"></span>
@@ -41,56 +43,72 @@
     <a href="#contact" class="hire-btn">Hire me</a>
   </div>
 </nav>
-
+ 
 <!-- ── HERO ── -->
 <section class="hero">
-
-  <!-- Avatar -->
-  <div class="avatar-col">
-    <div class="avatar-status">
-      <span class="status-dot"></span>
-      ONLINE · CODING
-    </div>
-
-    <div class="avatar-wrapper">
-        <div class="avatar-glow"></div>
-        <div class="avatar-ring">
+ 
+  <div class="avatar-scene">
+    <div class="avatar-container">
+ 
+      <!-- Spinning gradient ring -->
+      <div class="avatar-ring">
         <div class="avatar-ring-inner">
-            <canvas id="avatarCanvas" width="288" height="288"></canvas> </div>
+ 
+          <!-- 
+            VIDEO AVATAR
+            - autoplay + muted + loop + playsinline = silent looping, no controls
+            - object-fit: cover fills the circle
+            - The black bg is hidden: mix-blend-mode: lighten removes it
+            - FIX: replaced canvas / img with video element
+          -->
+          <video
+            class="avatar-video"
+            src="assets/avatar-movement.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+          ></video>
+ 
         </div>
-    </div>
-
-    <div class="avatar-namecard">
-      <div class="namecard-label">Web Developer</div>
-      <div class="namecard-name">EasternNova</div>
+      </div>
+ 
+      <!-- Pulse rings -->
+      <div class="avatar-pulse"></div>
+      <div class="avatar-pulse"></div>
+      <div class="avatar-pulse"></div>
+ 
+      <!-- Ambient glow behind -->
+      <div class="avatar-glow"></div>
+ 
     </div>
   </div>
-
+ 
   <!-- Content -->
   <div class="content-col">
     <div class="location-badge">
       <span class="loc-dot"></span>
       Learning & Open to opportunities · India
     </div>
-
+ 
     <h1 class="hero-heading">
       Hi, I'm <span class="accent">EasternNova</span>
     </h1>
-
+ 
     <div class="hero-tag">
       &lt;Web Developer & Designer/&gt;
     </div>
-
+ 
     <p class="hero-bio">
       CS student · Currently learning & building projects — crafting clean, modern, and user-friendly web experiences.
     </p>
-
+ 
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View my work</a>
       <a href="#contact" class="btn-secondary">Let's talk</a>
       <a href="#" class="btn-ghost">Résumé</a>
     </div>
-
+ 
     <div class="stat-grid">
       <div class="stat-card">
         <div class="stat-value">4+</div>
@@ -111,19 +129,19 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ── ABOUT ── -->
 <section class="section" id="about">
   <div class="section-label">/ 01 — About</div>
   <h2 class="section-title">A bit about me</h2>
   <div class="section-divider"></div>
-
+ 
   <div class="about-grid">
     <div class="about-text">
       <p>I design and build software that feels right — clean interfaces and thoughtful interactions.</p>
       <p>As a CS student, I'm exploring design + engineering.</p>
     </div>
-
+ 
     <div class="about-code-block">
       <div class="code-header">
         <div class="code-dot d1"></div>
@@ -132,79 +150,111 @@
         <span class="code-filename">about.ts</span>
       </div>
       <div class="code-body">
-        const EasternNova = { <br>
-        name: "EasternNova", <br>
-        role: "Web Developer" <br>
+        const EasternNova = {<br>
+        &nbsp;&nbsp;name: <span style="color:#86efac">"EasternNova"</span>,<br>
+        &nbsp;&nbsp;role: <span style="color:#86efac">"Web Developer"</span>,<br>
+        &nbsp;&nbsp;status: <span style="color:#86efac">"Learning 🚀"</span><br>
         }
       </div>
     </div>
   </div>
 </section>
-
+ 
 <!-- ── SKILLS ── -->
 <section class="section" id="skills">
   <div class="section-label">/ 02 — Skills</div>
   <h2 class="section-title">What I work with</h2>
   <div class="section-divider"></div>
-
+ 
   <div class="skills-grid">
     <div class="skill-card">
+      <div class="skill-icon">⚛️</div>
       <div class="skill-name">React</div>
+      <div class="skill-sub">UI Library</div>
     </div>
     <div class="skill-card">
+      <div class="skill-icon">🔷</div>
       <div class="skill-name">TypeScript</div>
+      <div class="skill-sub">Typed JS</div>
     </div>
     <div class="skill-card">
+      <div class="skill-icon">🎨</div>
       <div class="skill-name">CSS</div>
+      <div class="skill-sub">Styling</div>
     </div>
   </div>
 </section>
-
+ 
 <!-- ── PROJECTS ── -->
 <section class="section" id="projects">
   <div class="section-label">/ 03 — Projects</div>
   <h2 class="section-title">Things I've built</h2>
   <div class="section-divider"></div>
-
+ 
   <div class="projects-grid">
     <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🌐</div>
+      </div>
       <div class="project-title">Portfolio v1</div>
-      <div class="project-desc">My personal portfolio</div>
+      <div class="project-desc">My personal portfolio — built from scratch with vanilla HTML, CSS & JS.</div>
+      <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JS</span>
+      </div>
     </div>
-
+ 
     <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">📊</div>
+      </div>
       <div class="project-title">Dev Dashboard</div>
-      <div class="project-desc">Analytics dashboard</div>
+      <div class="project-desc">Analytics dashboard for tracking dev metrics and productivity.</div>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">TypeScript</span>
+      </div>
     </div>
   </div>
 </section>
-
+ 
 <!-- ── CONTACT ── -->
 <section class="section" id="contact">
   <div class="section-label">/ 04 — Contact</div>
-
+ 
   <div class="contact-card">
     <h2 class="contact-heading">Let's build something ✨</h2>
     <p class="contact-sub">Open to freelance & internships</p>
-
+ 
     <div class="contact-links">
-      <a href="mailto:hello@easternnova.dev" class="contact-link">Email</a>
-      <a href="#" class="contact-link">GitHub</a>
-      <a href="#" class="contact-link">LinkedIn</a>
+      <a href="mailto:hello@easternnova.dev" class="contact-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+      <a href="#" class="contact-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a href="#" class="contact-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
     </div>
   </div>
 </section>
-
+ 
 <!-- ── FOOTER ── -->
 <footer>
   <span>© 2026 EasternNova</span>
   <span>Built with 💜</span>
 </footer>
-
+ 
 <!-- JS -->
+<!-- FIX: removed avatarAdvanced.js (doesn't exist), removed avatar.js (canvas replaced by video) -->
 <script src="js/background.js"></script>
-<script src="js/avatar.js"></script>
 <script src="js/main.js"></script>
-
+ 
 </body>
 </html>
+ 

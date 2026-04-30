@@ -1,0 +1,103 @@
+/* ── AVATAR SCENE ── */
+
+.avatar-scene {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.avatar-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── AMBIENT GLOW (behind the ring) ── */
+.avatar-glow {
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,85,247,0.4) 0%, transparent 70%);
+  filter: blur(35px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── SPINNING GRADIENT RING ── */
+.avatar-ring {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 4px;                    /* ring thickness */
+  background: conic-gradient(
+    #7c3aed,
+    #a855f7,
+    #ec4899,
+    #a855f7,
+    #7c3aed
+  );
+  /* FIX: removed spinning animation — ring stays still */
+}
+
+/* ── INNER CIRCLE — clips the video ── */
+.avatar-ring-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;           /* enforces circular clip on the video */
+  background: #080b14;        /* fallback while video loads */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── VIDEO ── */
+.avatar-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* fills the circle, no letterbox */
+  border-radius: 50%;
+
+  /*
+    KEY TRICK — removes the black background from the video:
+    mix-blend-mode: lighten makes pure black (#000) fully transparent
+    while keeping all the coloured / bright pixels visible.
+    Works best when the video background is truly black.
+    Alternative: "screen" or "luminosity" depending on your footage.
+  */
+  mix-blend-mode: lighten;
+  background: transparent;
+}
+
+/* ── PULSE RINGS ── */
+.avatar-pulse {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1px solid rgba(168,85,247,0.25);
+  animation: avatar-pulse-out 3s ease-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.avatar-pulse:nth-child(2) { animation-delay: 1s;  inset: -22px; }
+.avatar-pulse:nth-child(3) { animation-delay: 2s;  inset: -32px; }
+
+@keyframes avatar-pulse-out {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(1.08); opacity: 0; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .avatar-container {
+    width: 220px;
+    height: 220px;
+  }
+}
