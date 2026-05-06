@@ -1,0 +1,123 @@
+/* ================================================================
+   scenes/scene2/scene2.css
+   ================================================================ */
+
+/* ── Basketball arc (CSS offset-path animation) ─────────────── */
+#basketball-arc {
+  display: none;
+}
+
+#ball-sprite {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+
+  /* Basketball texture via radial gradient */
+  background:
+    radial-gradient(circle at 35% 35%, #ff8c00, #c45a00);
+
+  /* Basketball line seams */
+  box-shadow:
+    inset -3px -3px 8px rgba(0,0,0,0.4),
+    inset 3px 3px 8px rgba(255,160,0,0.3),
+    0 0 15px rgba(255,140,0,0.4);
+
+  display: none;
+  opacity: 0;
+  transform-origin: center center;
+
+  /* Ball spin during arc */
+  transition: opacity 0.2s ease;
+}
+
+/* Seam lines drawn with pseudo-elements */
+#ball-sprite::before,
+#ball-sprite::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.35);
+}
+
+#ball-sprite::before {
+  inset: 6px;
+  clip-path: polygon(0 48%, 100% 48%, 100% 52%, 0 52%);
+}
+
+/* Arc animation — ball travels from top-right to hoop center */
+@keyframes ballArc {
+  0% {
+    top: 5%;
+    left: 75%;
+    transform: scale(0.6) rotate(0deg);
+    opacity: 1;
+  }
+  40% {
+    top: 20%;
+    left: 55%;
+    transform: scale(1) rotate(180deg);
+  }
+  70% {
+    top: 45%;
+    left: 40%;
+    transform: scale(1.1) rotate(320deg);
+    opacity: 1;
+  }
+  100% {
+    top: 38%;
+    /* Hoop X position — adjust to match where you place #hoop-img */
+    left: var(--hoop-x, 60%);
+    transform: scale(0.9) rotate(360deg);
+    opacity: 0.9;
+  }
+}
+
+#ball-sprite.arc-active {
+  animation: none;
+}
+
+/* Falling animation (after hoop fades) */
+@keyframes ballFall {
+  0%   { transform: scale(0.9) rotate(360deg); opacity: 1; }
+  100% {
+    transform: translateY(55vh) scale(0.7) rotate(450deg);
+    opacity: 0.6;
+  }
+}
+
+#ball-sprite.arc-falling {
+  animation: none;
+}
+
+/* ── Hoop container ──────────────────────────────────────────── */
+#hoop-container {
+  position: absolute;
+  /* Position the hoop near upper-right area */
+  top: 28%;
+  right: 18%;
+  width: clamp(80px, 10vw, 140px);
+  z-index: 7;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  transform-origin: center top;
+  filter: drop-shadow(0 0 12px rgba(255, 140, 0, 0.5));
+}
+
+#hoop-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Fallen ball (scene 4 bottom) ───────────────────────────── */
+#fallen-ball {
+  display: none;
+  opacity: 0;
+}
+
+#fallen-ball img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

@@ -1,0 +1,181 @@
+/* ================================================================
+   scenes/scene3/scene3.css
+   ================================================================ */
+
+#scene3 {
+  display: flex;
+  align-items: stretch;
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* ── Left panel ───────────────────────────────────────────────── */
+#skills-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  padding: 6vh 4vw 6vh 5vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,245,255,0.3) transparent;
+  will-change: transform;
+}
+
+#skills-panel::-webkit-scrollbar { width: 3px; }
+#skills-panel::-webkit-scrollbar-thumb {
+  background: rgba(0,245,255,0.3);
+  border-radius: 2px;
+}
+
+#skills-header {
+  margin-bottom: 2.5rem;
+}
+
+#skills-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.skills-sub {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  margin-top: 0.5rem;
+}
+
+/* ── Section label ────────────────────────────────────────────── */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  opacity: 0.7;
+}
+
+/* ── Skill rows ───────────────────────────────────────────────── */
+.skill-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 40px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.8rem;
+}
+
+.skill-name {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.skill-bar-track {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--bar-color);
+  border-radius: 2px;
+  box-shadow: 0 0 6px var(--bar-color);
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animate bar fill when parent becomes visible */
+#scene3.active .skill-bar-fill,
+.skill-bar-fill {
+  width: var(--target-width);
+}
+
+.skill-pct {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+/* ── Project cards ────────────────────────────────────────────── */
+.project-card {
+  display: flex;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: var(--surface);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.project-accent-bar {
+  width: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  flex-shrink: 0;
+}
+
+.project-body {
+  padding: 1rem 1.2rem;
+}
+
+.project-name {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.project-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 0.6rem;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.03);
+}
+
+.project-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--neon-cyan);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: text-shadow 0.2s ease;
+}
+
+.project-link:hover {
+  text-shadow: var(--glow-cyan);
+}

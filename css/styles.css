@@ -23,6 +23,33 @@ body {
   overflow-x: hidden;
 }
 
+body.is-loading {
+  background: #050510;
+  overflow: hidden;
+}
+
+body.is-loading > :not(#loader) {
+  visibility: hidden;
+}
+
+#scroll-container {
+  position: relative;
+  min-height: var(--total-height, 500vh);
+}
+
+#sticky-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  min-height: 100vh;
+}
+
 /* ── FLOATING CODE BG ── */
 .code-bg {
   position: fixed; inset: 0; z-index: 0;
