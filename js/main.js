@@ -16,6 +16,13 @@ export const SCENE_RANGES = {
 
 const TOTAL_SCROLL_HEIGHT = window.innerHeight * 5;
 
+const loaderFont = document.createElement('link');
+loaderFont.rel = 'stylesheet';
+loaderFont.href =
+  'https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Great+Vibes&display=swap';
+
+document.head.appendChild(loaderFont);
+
 function showLoader() {
   const loader = document.createElement('div');
   loader.id = 'loader';
@@ -48,31 +55,60 @@ function showLoader() {
     align-items:center;
   `;
   loader.querySelector('.loader-bg-name').style.cssText = `
-    position:absolute;
-    inset:auto;
-    font-size:clamp(3.8rem, 11vw, 8rem);
-    line-height:1;
-    font-weight:900;
-    letter-spacing:0.08em;
-    color:rgba(255,255,255,0.035);
-    white-space:nowrap;
-    pointer-events:none;
-  `;
+   position:absolute;
+   inset:auto;
+   font-family:'Great Vibes', cursive, bold;
+   font-size:clamp(5rem, 14vw, 11rem);
+   line-height:1;
+   font-weight:800;
+   letter-spacing:0.04em;
+   color:rgba(115, 80, 255, 0.08);
+   text-shadow:
+    0 0 16px rgba(115,80,255,0.10),
+    0 0 36px rgba(115,80,255,0.06);
+   white-space:nowrap;
+   pointer-events:none;
+   user-select:none;
+   filter:blur(0.3px);
+   transform:
+    scaleY(1.02)
+    rotate(-2deg);
+`;
   loader.querySelector('.loader-name').style.cssText = `
-    position:relative;
-    color:#00f5ff; font-size:1.5rem; letter-spacing:0.25em;
-    text-shadow:0 0 20px rgba(0,245,255,0.8);
-    margin-bottom:1.2rem;
-  `;
+  position:relative;
+
+  font-family:'Kaushan Script', cursive;
+
+  font-size:2.4rem;
+  font-weight:700;
+
+  letter-spacing:0.08em;
+
+  color:#b026ff;
+  -webkit-text-stroke: 0.3px rgba(255,255,255,0.15);
+
+  text-shadow:
+    0 0 8px rgba(176,38,255,0.95),
+    0 0 20px rgba(176,38,255,0.8),
+    0 0 40px rgba(111,0,255,0.6);
+
+  margin-bottom:1.3rem;
+
+  transform:rotate(-2deg);
+`;
   loader.querySelector('.loader-bar-track').style.cssText = `
     position:relative;
     width:200px; height:2px; background:rgba(255,255,255,0.1);
     border-radius:2px; overflow:hidden;
   `;
   loader.querySelector('.loader-bar').style.cssText = `
-    height:100%; width:0%; background:#00f5ff;
+    height:100%; width:0%; 
+    background:linear-gradient(90deg,#7c3aed,#4f46e5,#00e5ff);
+  box-shadow:
+    0 0 10px #7c3aed,
+    0 0 20px #4f46e5,
+    0 0 28px #00e5ff;
     transition:width 0.3s ease;
-    box-shadow:0 0 10px #00f5ff;
   `;
   loader.querySelector('.loader-pct').style.cssText = `
     position:relative;
